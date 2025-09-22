@@ -6,7 +6,7 @@ export const registros = [
         categoria: "Quadrinhos",
         reviewer: "Pedro Mente Aberta",
         nota: 8.5,
-        data_plataforma: "20/09/2025",
+        plataforma: "Site",
         visualizacoes: 12.450,
         comentarios: 321
 
@@ -17,7 +17,7 @@ export const registros = [
         categoria: "Animes",
         reviewer: "Ana Otaku Real",
         nota: 9.2,
-        data_plataforma: "18/09/2025",
+        plataforma: "Site",
         visualizacoes: 23100,
         comentarios: 789
     },
@@ -27,7 +27,7 @@ export const registros = [
         categoria: "Filmes",
         reviewer: "Lucas Cinéfilo Nerd",
         nota: 7.8,
-        data_plataforma: "15/09/2025",
+        plataforma: "Youtube",
         vizualizacoes: 8900,
         comentarios: 154
     },
@@ -37,7 +37,7 @@ export const registros = [
         categoria: "Jogos",
         reviewer: "Sofia Gamergirl",
         nota: 9.5,
-        data_plataforma: "12/09/2025",
+        plataforma: "Site",
         vizualizacoes: 45300,
         comentarios: 1250
     },
@@ -47,7 +47,7 @@ export const registros = [
         categoria: "Livros",
         reviewer: "Daniel Literato Geek",
         nota: 8.1,
-        data_plataforma: "10/09/2025",
+        plataforma: "Blog",
         vizualizacoes: 5600,
         comentarios: 98
     },
@@ -57,7 +57,7 @@ export const registros = [
         categoria: "Animes",
         reviewer: "Ana Otaku Real",
         nota: 7.9,
-        data_plataforma: "05/09/2025",
+        plataforma: "Site",
         vizualizacoes: 15700,
         comentarios: 412
     },
@@ -67,7 +67,7 @@ export const registros = [
         categoria: "Filmes",
         reviewer: "Lucas Cinéfilo Nerd",
         nota: 9.0,
-        data_plataforma: "01/09/2025",
+        plataforma: "Youtube",
         vizualizacoes: 31800,
         comentarios: 950
     },
@@ -77,7 +77,7 @@ export const registros = [
         categoria: "Jogos",
         reviewer: "Sofia Gamergirl",
         nota: 8.8,
-        data_plataforma: "28/08/2025",
+        plataforma: "Site",
         vizualizacoes: 21500,
         comentarios: 630
     },
@@ -87,7 +87,7 @@ export const registros = [
         categoria: "Quadrinhos",
         reviewer: "Pedro Mente Aberta",
         nota: 9.4,
-        data_plataforma: "25/08/2025",
+        plataforma: "Site",
         vizualizacoes: 18900,
         comentarios: 520
     },
@@ -97,7 +97,7 @@ export const registros = [
         categoria: "Livros",
         reviewer: "Daniel Literato Geek",
         nota: 7.5,
-        data_plataforma: "20/08/2025",
+        plataforma: "Blog",
         vizualizacoes: 7200,
         comentarios: 115
     },
