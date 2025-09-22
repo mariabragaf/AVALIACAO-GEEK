@@ -1,4 +1,4 @@
-import registros from "../models/dados";
+import registros from "../models/dados.js";
 
 export const getAll = (req, res) => {
     res.status(200).json({
