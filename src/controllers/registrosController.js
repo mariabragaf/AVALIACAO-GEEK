@@ -1,0 +1,127 @@
+import registros from "../models/dados";
+
+export const getAll = (req, res) => {
+    res.status(200).json({
+        total: registros.length,
+        registros
+    });
+};
+
+export const getById = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    const registro = registros.find(c => c.id === id);
+
+    if(!registro) {
+        return res.status(404).json({
+            message: "Registro Geek não encontrado!"
+        })
+    }
+
+};
+
+export const create = (req, res) => {
+        const { titulo, categoria, reviewer, nota, data_plataforma, vizualizacoes, comentarios} = req.body;
+
+        if(!titulo || !categoria || !reviewer || !nota || !data_plataforma || !vizualizacoes || !comentarios) {
+            return res.status(404).json({
+                message: "Preencha todos os campos!"
+            });
+        }
+
+        const novoRegistro = {
+            id: registros.length +1,
+            titulo,
+            categoria,
+            reviewer,
+            nota,
+            data_plataforma,
+            vizualizacoes,
+            comentarios
+        };
+
+        registros.push(novoRegistro);
+
+        res.status(201).json({
+            message: "Novo registro Geek adicionado com sucesso",
+            registro: novoRegistro
+        });
+};
+
+export const update = (req, res) => {
+    const id = parseInt(req.params.id);
+    const { titulo, categoria, reviewer, nota, data_plataforma, vizualizacoes, comentarios } = req.body; 
+    
+    const idParaEditar = id;
+
+     if(isNaN(idParaEditar)){
+      return res.status(400).json({
+          success: false,
+          message: "O id deve ser um número válido."
+      })
+  }
+
+   const registroExiste = registros.find(registro => registro.id === idParaEditar);
+  if(!registroExiste){
+      return res.status(404).json({
+          success: false,
+          message: `O registro com o id: ${idParaEditar} não existe.`
+      })
+  }
+
+   const registrosAtualizados = registros.map(registro => registro.id === idParaEditar ? {
+      ...registro,
+      ...(titulo && { titulo }),
+      ...(categoria && { categoria }),
+      ...(reviewer && { reviewer }),
+      ...(nota && { nota }),
+      ...(data_plataforma && { data_plataforma }),
+      ...(vizualizacoes && { vizualizacoes }),
+      ...(comentarios && { comentarios })
+}
+: registro
+);
+
+registros.splice(0, registros.length, ...registrosAtualizados);
+
+const registroEditado = registros.find(registro => registro.id === idParaEditar);
+  res.status(200).json({
+      success: true,
+      message: "Dados atualizados com sucesso do registro. ✅",
+      registro: registroExiste
+  });
+
+};
+
+export const remove = (req, res) => {
+    const { id } = req.params
+
+    if (isNaN(id)) {
+        return res.status(400).json({
+            success: false,
+            message: "O id deve ser válido"
+        });
+    }
+
+    const idParaApagar = parseInt(id);
+
+    const registroParaRemover = registros.find(p => p.id === idParaApagar);
+    console.log(registroParaRemover)
+
+    if (!registroParaRemover) {
+        return res.status(404).json({
+            success: false,
+            message: "Registro id não existe"
+        });
+    }
+
+    const registroFiltrado = registros.filter(p => p.id !== idParaApagar);
+    console.log(registroFiltrado)
+
+    registros.splice(0, registros.length, ...registroFiltrado);
+
+    return res.status(200).json({
+        success: true,
+        message: "O registro foi removido com sucesso! 🗑️"
+    });
+};
